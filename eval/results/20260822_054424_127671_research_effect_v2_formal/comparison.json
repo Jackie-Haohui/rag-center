@@ -1,0 +1,233 @@
+{
+  "generated_at": "2026-08-28T08:32:05.186913+00:00",
+  "experiment_id": "research_effect_v2",
+  "title": "v2索引下单次检索与完整Research对比实验",
+  "target": "research_effect_v2",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "research",
+  "case_count": 10,
+  "shared_candidate_top_k": null,
+  "final_top_k": 10,
+  "verdict": "no_clear_gain",
+  "verdict_text": "无明显收益，暂不启用",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "execution_mode"
+  ],
+  "baseline_label": "v2 + 单次检索 + Qwen3精排 + 普通证据包",
+  "candidate_label": "v2 + Controlled Agentic Research",
+  "baseline_index_version": "v2",
+  "candidate_index_version": "v2",
+  "baseline": {
+    "context_recall": 0.9444444444444444,
+    "context_precision": 0.8888888888351852,
+    "evaluated_cases": 9,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 1,
+    "successful_cases": 10,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 20884.4341,
+    "latency_p50_ms": 20235.781499999997,
+    "latency_p95_ms": 31976.411900000003,
+    "latency_max_ms": 34520.837,
+    "average_application_model_calls": 2.0,
+    "model_calls_evaluated_cases": 10,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "candidate": {
+    "context_recall": 0.9444444444444444,
+    "context_precision": 0.9228395061244856,
+    "evaluated_cases": 9,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 10,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 10148.108,
+    "latency_p50_ms": 9985.2135,
+    "latency_p95_ms": 12868.529750000002,
+    "latency_max_ms": 13797.026,
+    "average_application_model_calls": 4.9,
+    "model_calls_evaluated_cases": 10,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": 2.9,
+    "average_evidence_chars": 596.4,
+    "citation_traceable_items": 29,
+    "citation_total_items": 29,
+    "citation_traceability_rate": 1.0,
+    "evidence_statuses": {
+      "complete": 9,
+      "missing": 1
+    },
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": 2.7,
+    "average_evidence_chars": 520.2,
+    "citation_traceable_items": 27,
+    "citation_total_items": 27,
+    "citation_traceability_rate": 1.0,
+    "evidence_statuses": {
+      "complete": 10
+    },
+    "answer_present_cases": 10,
+    "answer_citations_valid_cases": 10,
+    "degraded_cases": 0,
+    "supplement_cases": 2,
+    "average_round_count": 1.2,
+    "average_retrieval_task_count": 1.9,
+    "average_research_llm_call_count": 3,
+    "average_input_tokens": 8057,
+    "average_output_tokens": 489.4
+  },
+  "delta": {
+    "average_application_model_calls": 2.9000000000000004,
+    "context_precision": 0.03395061728930038,
+    "context_recall": 0.0,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": -20723.811,
+    "latency_mean_ms": -10736.326099999998,
+    "latency_p50_ms": -10250.567999999997,
+    "latency_p95_ms": -19107.88215,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": null,
+    "ragas_skipped_cases": -1.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.01,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.05
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 2.0,
+      "max_model_calls_increase": 6.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.0,
+      "min_improvement": 0.01,
+      "passed": false
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": 0.03395061728930038,
+        "min_delta": -0.05,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": -0.5975617967943426,
+      "max_latency_p95_increase_ratio": 2.0,
+      "latency_passed": true,
+      "model_calls_delta": 2.9000000000000004,
+      "max_model_calls_increase": 6.0,
+      "model_calls_passed": true,
+      "passed": true
+    },
+    "citation_traceability": {
+      "value": 1.0,
+      "required": 1.0,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [],
+    "regressed": []
+  },
+  "recall_case_changes": {
+    "improved": [],
+    "regressed": []
+  },
+  "recommendation": "主指标未达到预设提升门槛，当前数据不足以证明该能力有明确收益，暂不默认启用「v2 + Controlled Agentic Research」。",
+  "quality_comparison": {
+    "case_count": 9,
+    "case_ids": [
+      "aftersales_intercept_refund",
+      "aftersales_seven_day_freight",
+      "control_shipping_scope_conflict",
+      "live_campaign_shipping",
+      "live_category_qualification",
+      "member_points_refund",
+      "payment_combined_refund",
+      "payment_risk_appeal",
+      "search_ad_invoice_reconciliation"
+    ],
+    "excluded_cases": [
+      {
+        "case_id": "control_no_answer_offline_parking",
+        "baseline_reason": "expected_missing_no_context",
+        "candidate_reason": "excluded_to_match_baseline"
+      }
+    ]
+  },
+  "research_details": {
+    "shared_first_round_cases": 9,
+    "repair_denominator": 0,
+    "repaired_cases": 0,
+    "multi_hop_repair_rate": null,
+    "per_case": [
+      {
+        "case_id": "live_category_qualification",
+        "required_aspects": 2,
+        "baseline_covered": 2,
+        "candidate_covered": 2,
+        "repaired": false
+      },
+      {
+        "case_id": "live_campaign_shipping",
+        "required_aspects": 3,
+        "baseline_covered": 3,
+        "candidate_covered": 3,
+        "repaired": false
+      },
+      {
+        "case_id": "search_ad_invoice_reconciliation",
+        "required_aspects": 3,
+        "baseline_covered": 3,
+        "candidate_covered": 3,
+        "repaired": false
+      },
+      {
+        "case_id": "aftersales_intercept_refund",
+        "required_aspects": 2,
+        "baseline_covered": 2,
+        "candidate_covered": 2,
+        "repaired": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-08-22T13:27:37.593743+00:00",
+  "experiment_id": "query_rewrite",
+  "title": "Query Rewrite 消融实验",
+  "target": "query_rewrite",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": null,
+  "final_top_k": 5,
+  "verdict": "effective_costly",
+  "verdict_text": "质量收益成立，继续保留第一期 Query Rewrite，当前不做实现调整",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "query_options.enabled"
+  ],
+  "baseline_label": "关闭 Query Rewrite",
+  "candidate_label": "开启 Query Rewrite",
+  "baseline_index_version": "v1",
+  "candidate_index_version": "v1",
+  "baseline": {
+    "context_recall": 0.8166666666666667,
+    "context_precision": 0.857708333269085,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1102.34105,
+    "latency_p50_ms": 1061.1375,
+    "latency_p95_ms": 1525.7858500000002,
+    "latency_max_ms": 1527.246,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "candidate": {
+    "context_recall": 0.85,
+    "context_precision": 0.9360416665943837,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 3206.8123,
+    "latency_p50_ms": 2929.653,
+    "latency_p95_ms": 5398.487000000001,
+    "latency_max_ms": 5843.087,
+    "average_application_model_calls": 1.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "delta": {
+    "average_application_model_calls": 1.0,
+    "context_precision": 0.07833333332529868,
+    "context_recall": 0.033333333333333326,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": 4315.841,
+    "latency_mean_ms": 2104.47125,
+    "latency_p50_ms": 1868.5154999999997,
+    "latency_p95_ms": 3872.701150000001,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": null,
+    "ragas_skipped_cases": 0.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.03,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.02
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.4,
+      "max_model_calls_increase": 1.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.033333333333333326,
+      "min_improvement": 0.03,
+      "passed": true
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": 0.07833333332529868,
+        "min_delta": -0.02,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": 2.5381682167258273,
+      "max_latency_p95_increase_ratio": 0.4,
+      "latency_passed": false,
+      "model_calls_delta": 1.0,
+      "max_model_calls_increase": 1.0,
+      "model_calls_passed": true,
+      "passed": false
+    },
+    "citation_traceability": {
+      "value": null,
+      "required": null,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "coupon_expire",
+        "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+        "delta": 1.0
+      },
+      {
+        "case_id": "seller_dsr_settlement",
+        "question": "DSR≥4.8的优质商家按什么周期结算，款项进入哪个账户？",
+        "delta": 0.5
+      }
+    ],
+    "regressed": [
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": -0.5
+      },
+      {
+        "case_id": "return_inspection_refund_timeline",
+        "question": "退货申请通过后，买家寄回、仓库质检和退款到账分别要多久？",
+        "delta": -0.33333333333333337
+      }
+    ]
+  },
+  "recall_case_changes": {
+    "improved": [
+      {
+        "case_id": "coupon_expire",
+        "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+        "delta": 1.0
+      },
+      {
+        "case_id": "seller_dsr_settlement",
+        "question": "DSR≥4.8的优质商家按什么周期结算，款项进入哪个账户？",
+        "delta": 0.5
+      }
+    ],
+    "regressed": [
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": -0.5
+      },
+      {
+        "case_id": "return_inspection_refund_timeline",
+        "question": "退货申请通过后，买家寄回、仓库质检和退款到账分别要多久？",
+        "delta": -0.33333333333333337
+      }
+    ]
+  },
+  "recommendation": "继续保留第一期 Query Rewrite 的现有实现和显式开关，不改为仅关键词检索支持；性能成本由调用场景决定是否开启，本轮不调整功能逻辑。"
+}

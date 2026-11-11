@@ -1,0 +1,180 @@
+{
+  "generated_at": "2026-08-22T03:16:46.690256+00:00",
+  "experiment_id": "evidence_orchestration",
+  "title": "v2证据编排统一对比实验",
+  "target": "evidence_orchestration",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": 20,
+  "final_top_k": 10,
+  "verdict": "regressed",
+  "verdict_text": "证据筛选有效，建议保留并按需启用，不作为默认检索链路",
+  "primary_metric": "context_precision",
+  "changed_fields": [
+    "evidence_options.enabled"
+  ],
+  "baseline_label": "v2 + Qwen3精排Top10",
+  "candidate_label": "v2 + Qwen3精排Top10 + 证据包",
+  "baseline_index_version": "v2",
+  "candidate_index_version": "v2",
+  "baseline": {
+    "context_recall": 0.9833333333333333,
+    "context_precision": 0.865361111057777,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 2151.20215,
+    "latency_p50_ms": 1964.77,
+    "latency_p95_ms": 2679.7491000000005,
+    "latency_max_ms": 2713.685,
+    "average_application_model_calls": 1.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "candidate": {
+    "context_recall": 0.9583333333333334,
+    "context_precision": 0.9999999999258333,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 16661.40215,
+    "latency_p50_ms": 11703.3495,
+    "latency_p95_ms": 35842.539350000014,
+    "latency_max_ms": 50635.205,
+    "average_application_model_calls": 2.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": 10,
+    "average_evidence_chars": 2136,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {}
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": 1.75,
+    "average_evidence_chars": 364.6,
+    "citation_traceable_items": 35,
+    "citation_total_items": 35,
+    "citation_traceability_rate": 1.0,
+    "evidence_statuses": {
+      "partial": 2,
+      "complete": 18
+    }
+  },
+  "delta": {
+    "average_application_model_calls": 1.0,
+    "context_precision": 0.1346388888680563,
+    "context_recall": -0.02499999999999991,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": 47921.520000000004,
+    "latency_mean_ms": 14510.2,
+    "latency_p50_ms": 9738.5795,
+    "latency_p95_ms": 33162.79025000001,
+    "model_calls_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.001,
+    "quality_guardrails": {
+      "context_recall": {
+        "min_delta": -0.02
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 5.0,
+      "max_model_calls_increase": 1.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.1346388888680563,
+      "min_improvement": 0.001,
+      "passed": true
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_recall": {
+        "delta": -0.02499999999999991,
+        "min_delta": -0.02,
+        "passed": false
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": 12.375334037802274,
+      "max_latency_p95_increase_ratio": 5.0,
+      "latency_passed": false,
+      "model_calls_delta": 1.0,
+      "max_model_calls_increase": 1.0,
+      "model_calls_passed": true,
+      "passed": false
+    },
+    "citation_traceability": {
+      "value": 1.0,
+      "required": 1.0,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "price_protection",
+        "question": "刚买完就降价了，平台能把多花的钱补给我吗？",
+        "delta": 0.4305555555412037
+      },
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": 0.37499999993125
+      },
+      {
+        "case_id": "store_coupon_stack",
+        "question": "店里发的券能和平台跨店优惠一起用吗？",
+        "delta": 0.3333333333166667
+      }
+    ],
+    "regressed": []
+  },
+  "recall_case_changes": {
+    "improved": [],
+    "regressed": [
+      {
+        "case_id": "enterprise_purchase_payment_invoice",
+        "question": "企业购客户可以怎么付款，申请月结要什么条件，发票怎么开？",
+        "delta": -0.5
+      }
+    ]
+  },
+  "recommendation": "证据编排已经证明能够显著减少无关材料：Context Precision提升13.5个百分点，平均上下文由10.00条压缩到1.75条，引用回溯率为100.0%。但Context Recall下降2.5个百分点，P95由2.7秒增加到35.8秒，且每题增加1次模型调用，因此不适合作为所有在线检索的默认步骤。建议保留该能力，在多要点问答、可信引用、异步研究或高价值查询中按需开启；普通检索继续直接使用Qwen3精排Top10。",
+  "evidence_regression_details": [
+    {
+      "case_id": "enterprise_purchase_payment_invoice",
+      "status": "complete",
+      "evidence_count": 2,
+      "missing_aspects": [],
+      "missing_expected_documents": [
+        "商家入驻结算与对账流程.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "generated_at": "2026-08-20T12:18:57.731042+00:00",
+  "experiment_id": "rerank_upgrade",
+  "title": "LLM 重排与 Qwen3-Rerank 精排对比实验",
+  "target": "rerank_upgrade",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": 20,
+  "final_top_k": 10,
+  "verdict": "regressed",
+  "verdict_text": "出现负向效果，建议回退",
+  "primary_metric": "context_precision",
+  "changed_fields": [
+    "rerank_provider"
+  ],
+  "baseline_label": "原有 LLM 重排",
+  "candidate_label": "Qwen3-Rerank 精排",
+  "baseline": {
+    "context_recall": 0.95,
+    "context_precision": 0.9296428570903568,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 35007.7579,
+    "latency_p50_ms": 35024.1975,
+    "latency_p95_ms": 50097.37925,
+    "latency_max_ms": 51740.808,
+    "average_application_model_calls": 1.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "candidate": {
+    "context_recall": 0.8583333333333333,
+    "context_precision": 0.8887539681920934,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 3197.0066,
+    "latency_p50_ms": 3093.616,
+    "latency_p95_ms": 4555.644600000002,
+    "latency_max_ms": 7444.169,
+    "average_application_model_calls": 1.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "delta": {
+    "average_application_model_calls": 0.0,
+    "context_precision": -0.040888888898263365,
+    "context_recall": -0.09166666666666667,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": -44296.638999999996,
+    "latency_mean_ms": -31810.751299999996,
+    "latency_p50_ms": -31930.5815,
+    "latency_p95_ms": -45541.73465,
+    "model_calls_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_recall": {
+        "min_delta": 0.0
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.5,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": -0.040888888898263365,
+      "min_improvement": 0.0,
+      "passed": false
+    },
+    "quality_improved": false,
+    "quality_guardrails": {
+      "context_recall": {
+        "delta": -0.09166666666666667,
+        "min_delta": 0.0,
+        "passed": false
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": -0.9090642131743848,
+      "max_latency_p95_increase_ratio": 0.5,
+      "latency_passed": true,
+      "model_calls_delta": 0.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "warehouse_mode_codes",
+        "question": "FBP、SOP和WMS在仓储履约中分别表示什么？",
+        "delta": 0.2499999999375
+      },
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": 0.19444444437129638
+      },
+      {
+        "case_id": "platinum_clearance_price_protection",
+        "question": "白金会员购买清仓商品后很快降价，能按30天价保申请退差价吗？",
+        "delta": 0.10555555556370366
+      }
+    ],
+    "regressed": [
+      {
+        "case_id": "price_protection",
+        "question": "刚买完就降价了，平台能把多花的钱补给我吗？",
+        "delta": -0.3249999999891666
+      },
+      {
+        "case_id": "refund_unshipped",
+        "question": "东西还没寄出来，我不要了，钱多久能退回来？",
+        "delta": -0.29285714282482145
+      },
+      {
+        "case_id": "livestream_campaign_shipping",
+        "question": "直播大促订单最晚多久揽收，超时后怎么赔付？",
+        "delta": -0.16666666667500007
+      }
+    ]
+  },
+  "recommendation": "Qwen3-Rerank 当前质量暂未超过 LLM 重排，但 P95 延迟下降 90.9%，工程性能优势显著。保留精排实现，暂不宣称质量提升；轻量图谱改造完成后使用相同共同候选 Top20、最终 Top10 和统一 Golden Set 复测，再确定最终替代结论。"
+}

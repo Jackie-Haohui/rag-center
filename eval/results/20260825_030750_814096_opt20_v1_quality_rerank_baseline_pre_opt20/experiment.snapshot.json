@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "opt20_v1_quality_rerank_baseline",
+  "title": "优化二十改造前：v1 Quality旧LLM重排基线",
+  "target": "opt20_prechange_quality_baseline",
+  "changed_fields": [
+    "rerank_provider"
+  ],
+  "dataset": "eval/datasets/golden_basic_20.json",
+  "suite": "basic",
+  "primary_metric": "context_precision",
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "shared_candidate_top_k": 20,
+  "baseline": {
+    "label": "v1 Quality目标口径：Rewrite + LLM重排Top10",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": true,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": true,
+      "strategy": "rewrite",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "llm",
+    "execution_mode": "retrieve"
+  },
+  "candidate": {
+    "label": "同候选RRF顺序参考组（不作为v1旧链路基线）",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": true,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": true,
+      "strategy": "rewrite",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "noop",
+    "execution_mode": "retrieve"
+  },
+  "decision": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_recall": {
+        "min_delta": -0.05
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 1.0,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  }
+}

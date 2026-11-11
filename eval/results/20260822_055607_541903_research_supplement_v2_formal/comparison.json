@@ -1,0 +1,222 @@
+{
+  "generated_at": "2026-08-28T08:32:05.186271+00:00",
+  "experiment_id": "research_supplement_v2",
+  "title": "v2索引下禁止补证与允许一次补证对比实验",
+  "target": "research_supplement_v2",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "research_multihop",
+  "case_count": 4,
+  "shared_candidate_top_k": null,
+  "final_top_k": 10,
+  "verdict": "evaluation_failed",
+  "verdict_text": "补证实验条件不成立，暂时不能判断第二轮是否有效",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "execution_mode"
+  ],
+  "baseline_label": "v2 + 查询分解 + 首轮并行检索（禁止补证）",
+  "candidate_label": "v2 + 查询分解 + 一次定向补证",
+  "baseline_index_version": "v2",
+  "candidate_index_version": "v2",
+  "baseline": {
+    "context_recall": 1.0,
+    "context_precision": 0.895833333296875,
+    "evaluated_cases": 4,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 4,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 12680.715250000001,
+    "latency_p50_ms": 13155.705,
+    "latency_p95_ms": 13940.739650000001,
+    "latency_max_ms": 14010.707,
+    "average_application_model_calls": 4.5,
+    "model_calls_evaluated_cases": 4,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "candidate": {
+    "context_recall": 1.0,
+    "context_precision": 0.9583333332979167,
+    "evaluated_cases": 4,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 4,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 12474.45625,
+    "latency_p50_ms": 11719.2645,
+    "latency_p95_ms": 15929.069400000002,
+    "latency_max_ms": 16399.329,
+    "average_application_model_calls": 5.0,
+    "model_calls_evaluated_cases": 4,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": 3,
+    "average_evidence_chars": 551.25,
+    "citation_traceable_items": 12,
+    "citation_total_items": 12,
+    "citation_traceability_rate": 1.0,
+    "evidence_statuses": {
+      "complete": 4
+    },
+    "answer_present_cases": 4,
+    "answer_citations_valid_cases": 4,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": 1,
+    "average_retrieval_task_count": 1.5,
+    "average_research_llm_call_count": 3,
+    "average_input_tokens": 8073.75,
+    "average_output_tokens": 569.25
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": 3.25,
+    "average_evidence_chars": 625.75,
+    "citation_traceable_items": 13,
+    "citation_total_items": 13,
+    "citation_traceability_rate": 1.0,
+    "evidence_statuses": {
+      "complete": 4
+    },
+    "answer_present_cases": 4,
+    "answer_citations_valid_cases": 4,
+    "degraded_cases": 0,
+    "supplement_cases": 1,
+    "average_round_count": 1.25,
+    "average_retrieval_task_count": 2,
+    "average_research_llm_call_count": 3,
+    "average_input_tokens": 8342,
+    "average_output_tokens": 490.25
+  },
+  "delta": {
+    "average_application_model_calls": 0.5,
+    "context_precision": 0.06250000000104172,
+    "context_recall": 0.0,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": 2388.622000000001,
+    "latency_mean_ms": -206.25900000000183,
+    "latency_p50_ms": -1436.4405000000006,
+    "latency_p95_ms": 1988.3297500000008,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": null,
+    "ragas_skipped_cases": 0.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.01,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.05
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 1.0,
+      "max_model_calls_increase": 2.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.0,
+      "min_improvement": 0.01,
+      "passed": false
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": 0.06250000000104172,
+        "min_delta": -0.05,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": 0.14262727802968478,
+      "max_latency_p95_increase_ratio": 1.0,
+      "latency_passed": true,
+      "model_calls_delta": 0.5,
+      "max_model_calls_increase": 2.0,
+      "model_calls_passed": true,
+      "passed": true
+    },
+    "citation_traceability": {
+      "value": 1.0,
+      "required": 1.0,
+      "passed": true
+    },
+    "supplement_design_valid": false
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [],
+    "regressed": []
+  },
+  "recall_case_changes": {
+    "improved": [],
+    "regressed": []
+  },
+  "recommendation": "本轮4题没有形成至少2道合法修复分母，且两组只有2/4道首轮快照一致。Precision变化不能可靠归因于第二轮补证；应先固定复用Planner与首轮候选快照，并补充首轮确实缺证、知识库中又存在目标证据的多跳题后重测。",
+  "quality_comparison": {
+    "case_count": 4,
+    "case_ids": [
+      "aftersales_intercept_refund",
+      "live_campaign_shipping",
+      "live_category_qualification",
+      "search_ad_invoice_reconciliation"
+    ],
+    "excluded_cases": []
+  },
+  "research_details": {
+    "shared_first_round_cases": 2,
+    "repair_denominator": 0,
+    "repaired_cases": 0,
+    "multi_hop_repair_rate": null,
+    "per_case": [
+      {
+        "case_id": "live_category_qualification",
+        "required_aspects": 2,
+        "baseline_covered": 2,
+        "candidate_covered": 2,
+        "repaired": false
+      },
+      {
+        "case_id": "live_campaign_shipping",
+        "required_aspects": 3,
+        "baseline_covered": 3,
+        "candidate_covered": 3,
+        "repaired": false
+      },
+      {
+        "case_id": "search_ad_invoice_reconciliation",
+        "required_aspects": 3,
+        "baseline_covered": 3,
+        "candidate_covered": 3,
+        "repaired": false
+      },
+      {
+        "case_id": "aftersales_intercept_refund",
+        "required_aspects": 2,
+        "baseline_covered": 2,
+        "candidate_covered": 2,
+        "repaired": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "context_graph_upgrade",
+  "title": "v1与v2轻量图谱增强检索对比实验",
+  "target": "context_graph_upgrade",
+  "changed_fields": ["index_version"],
+  "dataset": "eval/datasets/golden_basic_20.json",
+  "suite": "basic",
+  "primary_metric": "context_recall",
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120,
+  "baseline": {
+    "label": "v1现有检索链路",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {"enabled": false, "top_n": 10},
+    "evidence_options": {"enabled": false},
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    }
+  },
+  "candidate": {
+    "label": "v2轻量图谱增强链路",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {"enabled": false, "top_n": 10},
+    "evidence_options": {"enabled": false},
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    }
+  },
+  "decision": {
+    "min_primary_improvement": 0.001,
+    "quality_guardrails": {
+      "context_precision": {"min_delta": -0.02}
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.3,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  }
+}

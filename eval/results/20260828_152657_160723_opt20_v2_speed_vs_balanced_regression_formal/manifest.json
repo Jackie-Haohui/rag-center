@@ -1,0 +1,97 @@
+{
+  "run_id": "20260828_152657_opt20_v2_speed_vs_balanced_regression",
+  "experiment_id": "opt20_v2_speed_vs_balanced_regression",
+  "title": "优化二十 v2 Speed 与 Balanced 三档回归",
+  "dataset_version": "golden_basic_20_v2",
+  "corpus_versions": {
+    "ecommerce": "ecommerce_corpus_base"
+  },
+  "knowledge_base_ids": {
+    "ecommerce": "df1dad54-7bfd-4ec7-9116-cfe2448e9389"
+  },
+  "suite": "basic",
+  "case_count": 20,
+  "primary_metric": "context_recall",
+  "started_at": "2026-08-28T15:26:57.163028+00:00",
+  "finished_at": "2026-08-28T15:27:07.951853+00:00",
+  "duration_seconds": 10.789,
+  "git_commit": "6a619a0aa3e0d4b7f9b7b94d0bdc03f6a06fd065",
+  "dirty": true,
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "baseline": {
+    "label": "v2 Speed",
+    "index_version": "v2",
+    "profile": "speed",
+    "top_k": 5,
+    "retrieval_options": {
+      "mode": "vector",
+      "vector_top_k": 10,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "candidate": {
+    "label": "v2 Balanced",
+    "index_version": "v2",
+    "profile": "balanced",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 10,
+      "bm25_top_k": 10,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "frozen_baseline": null,
+  "telemetry": {
+    "ragas_do_not_track": true,
+    "offline_langfuse_enabled": false
+  },
+  "index_policy": {
+    "baseline": "v2",
+    "candidate": "v2"
+  },
+  "status": "completed",
+  "groups": {
+    "baseline": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    },
+    "candidate": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    }
+  },
+  "verdict": "regressed",
+  "verdict_text": "主质量指标有收益，但另一项质量指标下降，暂不启用"
+}

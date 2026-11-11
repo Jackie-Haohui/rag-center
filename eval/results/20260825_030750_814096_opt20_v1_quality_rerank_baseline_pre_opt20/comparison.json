@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-08-25T03:40:55.026938+00:00",
+  "experiment_id": "opt20_v1_quality_rerank_baseline",
+  "title": "优化二十改造前：v1 Quality旧LLM重排基线",
+  "target": "opt20_prechange_quality_baseline",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": 20,
+  "final_top_k": 10,
+  "verdict": "regressed",
+  "verdict_text": "出现负向效果，建议回退",
+  "primary_metric": "context_precision",
+  "changed_fields": [
+    "rerank_provider"
+  ],
+  "baseline_label": "v1 Quality目标口径：Rewrite + LLM重排Top10",
+  "candidate_label": "同候选RRF顺序参考组（不作为v1旧链路基线）",
+  "baseline_index_version": "v1",
+  "candidate_index_version": "v1",
+  "baseline": {
+    "context_recall": 0.9333333333333333,
+    "context_precision": 0.9758333332660556,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 34129.8676,
+    "latency_p50_ms": 32152.593,
+    "latency_p95_ms": 62549.879850000005,
+    "latency_max_ms": 62629.449,
+    "average_application_model_calls": 2.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": 0.8424343621033068,
+    "rank_evaluated_cases": 20
+  },
+  "candidate": {
+    "context_recall": 0.925,
+    "context_precision": 0.7823055555020689,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 3467.1342,
+    "latency_p50_ms": 3211.623,
+    "latency_p95_ms": 4523.572050000003,
+    "latency_max_ms": 9542.803,
+    "average_application_model_calls": 1.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": 0.7546338929091206,
+    "rank_evaluated_cases": 20
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "delta": {
+    "average_application_model_calls": -1.0,
+    "context_precision": -0.19352777776398666,
+    "context_recall": -0.008333333333333304,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": -53086.646,
+    "latency_mean_ms": -30662.733399999997,
+    "latency_p50_ms": -28940.97,
+    "latency_p95_ms": -58026.3078,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": -0.08780046919418616,
+    "ragas_skipped_cases": 0.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_recall": {
+        "min_delta": -0.05
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 1.0,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": -0.19352777776398666,
+      "min_improvement": 0.0,
+      "passed": false
+    },
+    "quality_improved": false,
+    "quality_guardrails": {
+      "context_recall": {
+        "delta": -0.008333333333333304,
+        "min_delta": -0.05,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": -0.9276805637221379,
+      "max_latency_p95_increase_ratio": 1.0,
+      "latency_passed": true,
+      "model_calls_delta": -1.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": true
+    },
+    "citation_traceability": {
+      "value": null,
+      "required": null,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [],
+    "regressed": [
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": -0.7499999999625
+      },
+      {
+        "case_id": "combined_payment_refund",
+        "question": "组合支付的订单发生部分退款时，现金、优惠券和积分分别怎么退？",
+        "delta": -0.5305555555339584
+      },
+      {
+        "case_id": "platform_dispute",
+        "question": "买卖双方协商多久后可以申请平台介入，平台多久完成裁决和执行？",
+        "delta": -0.49999999995
+      }
+    ]
+  },
+  "recall_case_changes": {
+    "improved": [
+      {
+        "case_id": "warehouse_mode_codes",
+        "question": "FBP、SOP和WMS在仓储履约中分别表示什么？",
+        "delta": 0.33333333333333337
+      }
+    ],
+    "regressed": [
+      {
+        "case_id": "shipping_sla",
+        "question": "现货普通订单付款后多久必须完成揽收？",
+        "delta": -0.5
+      }
+    ]
+  },
+  "recommendation": "主指标明显下降或质量护栏未通过，建议保持「v1 Quality目标口径：Rewrite + LLM重排Top10」并排查退化题目。"
+}

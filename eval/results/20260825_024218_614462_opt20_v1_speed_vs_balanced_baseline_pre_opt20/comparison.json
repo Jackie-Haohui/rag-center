@@ -1,0 +1,204 @@
+{
+  "generated_at": "2026-08-25T03:07:32.173332+00:00",
+  "experiment_id": "opt20_v1_speed_vs_balanced_baseline",
+  "title": "优化二十改造前：v1 Speed 与 Balanced 基线",
+  "target": "opt20_prechange_profile_baseline",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": null,
+  "final_top_k": 10,
+  "verdict": "effective_costly",
+  "verdict_text": "有效但成本较高，建议按场景启用",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "top_k",
+    "retrieval_options.mode"
+  ],
+  "baseline_label": "v1 Speed目标口径：Vector Top5",
+  "candidate_label": "v1 Balanced目标口径：Hybrid 10+10 Top10",
+  "baseline_index_version": "v1",
+  "candidate_index_version": "v1",
+  "baseline": {
+    "context_recall": 0.8041666666666667,
+    "context_precision": 0.882777777713463,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 982.4283,
+    "latency_p50_ms": 1014.3475000000001,
+    "latency_p95_ms": 1059.62375,
+    "latency_max_ms": 1062.298,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "candidate": {
+    "context_recall": 0.8583333333333333,
+    "context_precision": 0.8891666666052291,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1707.58475,
+    "latency_p50_ms": 1602.9215,
+    "latency_p95_ms": 2453.75785,
+    "latency_max_ms": 2601.214,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "delta": {
+    "average_application_model_calls": 0.0,
+    "context_precision": 0.006388888891766142,
+    "context_recall": 0.054166666666666585,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": 1538.916,
+    "latency_mean_ms": 725.15645,
+    "latency_p50_ms": 588.5739999999998,
+    "latency_p95_ms": 1394.1341,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": null,
+    "ragas_skipped_cases": 0.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.05
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 1.0,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.054166666666666585,
+      "min_improvement": 0.0,
+      "passed": true
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": 0.006388888891766142,
+        "min_delta": -0.05,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": 1.3156878561848016,
+      "max_latency_p95_increase_ratio": 1.0,
+      "latency_passed": false,
+      "model_calls_delta": 0.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": false
+    },
+    "citation_traceability": {
+      "value": null,
+      "required": null,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "seller_dsr_settlement",
+        "question": "DSR≥4.8的优质商家按什么周期结算，款项进入哪个账户？",
+        "delta": 0.5
+      },
+      {
+        "case_id": "combined_payment_refund",
+        "question": "组合支付的订单发生部分退款时，现金、优惠券和积分分别怎么退？",
+        "delta": 0.33333333333333337
+      },
+      {
+        "case_id": "enterprise_purchase_payment_invoice",
+        "question": "企业购客户可以怎么付款，申请月结要什么条件，发票怎么开？",
+        "delta": 0.25
+      }
+    ],
+    "regressed": []
+  },
+  "recall_case_changes": {
+    "improved": [
+      {
+        "case_id": "seller_dsr_settlement",
+        "question": "DSR≥4.8的优质商家按什么周期结算，款项进入哪个账户？",
+        "delta": 0.5
+      },
+      {
+        "case_id": "combined_payment_refund",
+        "question": "组合支付的订单发生部分退款时，现金、优惠券和积分分别怎么退？",
+        "delta": 0.33333333333333337
+      },
+      {
+        "case_id": "enterprise_purchase_payment_invoice",
+        "question": "企业购客户可以怎么付款，申请月结要什么条件，发票怎么开？",
+        "delta": 0.25
+      }
+    ],
+    "regressed": []
+  },
+  "recommendation": "质量收益达到门槛，但延迟或模型调用成本超限，建议仅在质量优先场景启用「v1 Balanced目标口径：Hybrid 10+10 Top10」。"
+}

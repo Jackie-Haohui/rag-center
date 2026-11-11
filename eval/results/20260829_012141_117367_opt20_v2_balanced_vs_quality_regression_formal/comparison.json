@@ -1,0 +1,189 @@
+{
+  "generated_at": "2026-08-29T01:49:09.647593+00:00",
+  "experiment_id": "opt20_v2_balanced_vs_quality_regression",
+  "title": "优化二十 v2 Balanced 与 Quality 三档回归",
+  "target": "retrieve_profile",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": null,
+  "final_top_k": 10,
+  "verdict": "effective",
+  "verdict_text": "有效，建议启用",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "profile",
+    "retrieval_options.vector_top_k",
+    "retrieval_options.bm25_top_k",
+    "rerank_options.enabled",
+    "rerank_options.top_n",
+    "query_options.enabled",
+    "query_options.strategy"
+  ],
+  "baseline_label": "v2 Balanced",
+  "candidate_label": "v2 Quality",
+  "baseline_index_version": "v2",
+  "candidate_index_version": "v2",
+  "baseline": {
+    "context_recall": 0.9583333333333334,
+    "context_precision": 0.8665873015327845,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1076.4521,
+    "latency_p50_ms": 880.056,
+    "latency_p95_ms": 2043.1843999999999,
+    "latency_max_ms": 2060.349,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "candidate": {
+    "context_recall": 0.9833333333333333,
+    "context_precision": 0.8869444443828759,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 2811.0195,
+    "latency_p50_ms": 2860.4625,
+    "latency_p95_ms": 3213.1809000000003,
+    "latency_max_ms": 3257.696,
+    "average_application_model_calls": 2.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 19,
+    "graph_injected_chunks": 129,
+    "supplemental_chunks": 89,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 18,
+    "graph_injected_chunks": 94,
+    "supplemental_chunks": 53,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "delta": {
+    "average_application_model_calls": 2.0,
+    "context_precision": 0.02035714285009138,
+    "context_recall": 0.02499999999999991,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": 1197.3469999999998,
+    "latency_mean_ms": 1734.5674,
+    "latency_p50_ms": 1980.4065,
+    "latency_p95_ms": 1169.9965000000004,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": null,
+    "ragas_skipped_cases": 0.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.05
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 5.0,
+      "max_model_calls_increase": 2.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.02499999999999991,
+      "min_improvement": 0.0,
+      "passed": true
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": 0.02035714285009138,
+        "min_delta": -0.05,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": 0.5726338259043092,
+      "max_latency_p95_increase_ratio": 5.0,
+      "latency_passed": true,
+      "model_calls_delta": 2.0,
+      "max_model_calls_increase": 2.0,
+      "model_calls_passed": true,
+      "passed": true
+    },
+    "citation_traceability": {
+      "value": null,
+      "required": null,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "coupon_expire",
+        "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+        "delta": 0.5
+      }
+    ],
+    "regressed": []
+  },
+  "recall_case_changes": {
+    "improved": [
+      {
+        "case_id": "coupon_expire",
+        "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+        "delta": 0.5
+      }
+    ],
+    "regressed": []
+  },
+  "recommendation": "核心质量指标有提升，质量护栏和成本限制均通过，建议启用「v2 Quality」。"
+}

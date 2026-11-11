@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "research_supplement_v2",
+  "title": "v2索引下禁止补证与允许一次补证对比实验",
+  "target": "research_supplement_v2",
+  "changed_fields": ["execution_mode"],
+  "dataset": "eval/datasets/golden_basic_20.json",
+  "suite": "research_multihop",
+  "primary_metric": "context_recall",
+  "concurrency": 2,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120,
+  "baseline": {
+    "label": "v2 + 查询分解 + 首轮并行检索（禁止补证）",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {"enabled": true, "top_n": 10},
+    "evidence_options": {"enabled": true, "max_items": 10},
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "qwen3",
+    "execution_mode": "research_no_supplement"
+  },
+  "candidate": {
+    "label": "v2 + 查询分解 + 一次定向补证",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {"enabled": true, "top_n": 10},
+    "evidence_options": {"enabled": true, "max_items": 10},
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "qwen3",
+    "execution_mode": "research"
+  },
+  "decision": {
+    "min_primary_improvement": 0.01,
+    "quality_guardrails": {
+      "context_precision": {"min_delta": -0.05}
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 1.0,
+      "max_model_calls_increase": 2.0
+    },
+    "max_failed_cases": 0
+  }
+}

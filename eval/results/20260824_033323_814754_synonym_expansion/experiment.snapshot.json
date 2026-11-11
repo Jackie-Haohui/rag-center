@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "synonym_expansion",
+  "title": "同义词扩展消融实验",
+  "target": "synonym_expansion",
+  "changed_fields": [
+    "query_options.synonym_enabled"
+  ],
+  "dataset": "eval/datasets/golden_basic_20.json",
+  "suite": "basic",
+  "primary_metric": "context_recall",
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "shared_candidate_top_k": null,
+  "baseline": {
+    "label": "关闭同义词扩展",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 5,
+    "retrieval_options": {
+      "mode": "vector",
+      "vector_top_k": 10,
+      "bm25_top_k": 10,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 5
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "candidate": {
+    "label": "开启同义词扩展",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 5,
+    "retrieval_options": {
+      "mode": "vector",
+      "vector_top_k": 10,
+      "bm25_top_k": 10,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 5
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": true
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "decision": {
+    "min_primary_improvement": 0.03,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.02
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.3,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  }
+}

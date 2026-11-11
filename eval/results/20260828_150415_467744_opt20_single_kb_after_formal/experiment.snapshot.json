@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "opt20_single_kb_after",
+  "title": "优化二十：单库固定 v2 Hybrid 配置改造前后",
+  "target": "opt20_single_kb_after",
+  "changed_fields": [],
+  "dataset": "eval/datasets/golden_basic_20.json",
+  "suite": "basic",
+  "primary_metric": "context_recall",
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 2,
+  "timeout_seconds": 120.0,
+  "shared_candidate_top_k": null,
+  "baseline_run_dir": "eval/results/20260825_034128_199038_opt20_single_kb_performance_baseline_pre_opt20",
+  "baseline_group": "candidate",
+  "baseline": {
+    "label": "改造前冻结：v2 Hybrid 20+20 Top10",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "candidate": {
+    "label": "改造后：v2 Hybrid 20+20 Top10",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "decision": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.02
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.05,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  }
+}

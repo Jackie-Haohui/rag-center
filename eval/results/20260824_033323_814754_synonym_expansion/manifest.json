@@ -1,0 +1,99 @@
+{
+  "run_id": "20260824_033323_synonym_expansion",
+  "experiment_id": "synonym_expansion",
+  "title": "同义词扩展消融实验",
+  "dataset_version": "golden_basic_20_v2",
+  "corpus_versions": {
+    "ecommerce": "ecommerce_corpus_base"
+  },
+  "knowledge_base_ids": {
+    "ecommerce": "df1dad54-7bfd-4ec7-9116-cfe2448e9389"
+  },
+  "suite": "basic",
+  "case_count": 20,
+  "primary_metric": "context_recall",
+  "started_at": "2026-08-24T03:33:23.817063+00:00",
+  "finished_at": "2026-08-24T03:33:37.166110+00:00",
+  "duration_seconds": 13.349,
+  "git_commit": "ccf2ebabf57ac977cda9ed9d864cc00daf1cf441",
+  "dirty": true,
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "baseline": {
+    "label": "关闭同义词扩展",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 5,
+    "retrieval_options": {
+      "mode": "vector",
+      "vector_top_k": 10,
+      "bm25_top_k": 10,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 5
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "candidate": {
+    "label": "开启同义词扩展",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 5,
+    "retrieval_options": {
+      "mode": "vector",
+      "vector_top_k": 10,
+      "bm25_top_k": 10,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 5
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": true
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "telemetry": {
+    "ragas_do_not_track": true,
+    "offline_langfuse_enabled": false
+  },
+  "index_policy": {
+    "baseline": "v1",
+    "candidate": "v1"
+  },
+  "status": "completed",
+  "groups": {
+    "baseline": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    },
+    "candidate": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    }
+  },
+  "verdict": "regressed",
+  "verdict_text": "出现负向效果，建议回退"
+}

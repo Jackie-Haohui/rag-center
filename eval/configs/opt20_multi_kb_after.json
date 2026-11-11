@@ -1,0 +1,18 @@
+{
+  "profile": "custom",
+  "top_k": 10,
+  "index_version": "v1",
+  "retrieval_options": {
+    "mode": "hybrid",
+    "vector_top_k": 20,
+    "bm25_top_k": 20
+  },
+  "rerank_options": {"enabled": false},
+  "evidence_options": {"enabled": false},
+  "query_options": {
+    "enabled": false,
+    "strategy": "noop",
+    "synonym_enabled": false
+  },
+  "observability_enabled": false
+}

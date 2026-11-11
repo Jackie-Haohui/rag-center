@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "context_recall": 1.0,
+    "context_precision": 0.895833333296875,
+    "evaluated_cases": 4,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 4,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 12680.715250000001,
+    "latency_p50_ms": 13155.705,
+    "latency_p95_ms": 13940.739650000001,
+    "latency_max_ms": 14010.707,
+    "average_application_model_calls": 4.5,
+    "model_calls_evaluated_cases": 4,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": 3,
+    "average_evidence_chars": 551.25,
+    "citation_traceable_items": 12,
+    "citation_total_items": 12,
+    "citation_traceability_rate": 1.0,
+    "evidence_statuses": {
+      "complete": 4
+    },
+    "answer_present_cases": 4,
+    "answer_citations_valid_cases": 4,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": 1,
+    "average_retrieval_task_count": 1.5,
+    "average_research_llm_call_count": 3,
+    "average_input_tokens": 8073.75,
+    "average_output_tokens": 569.25
+  },
+  "per_case": [
+    {
+      "case_id": "live_category_qualification",
+      "question": "直播带货美妆或医疗器械需要哪些额外资质？",
+      "case_type": "dependent_multi_hop",
+      "error": null,
+      "latency_ms": 14010.707,
+      "application_model_calls": 5,
+      "ragas_skipped": null,
+      "context_precision": 0.5833333333041666,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "live_campaign_shipping",
+      "question": "大场直播产生的大促订单多久要发货，超时如何处理？",
+      "case_type": "dependent_multi_hop",
+      "error": null,
+      "latency_ms": 13544.258,
+      "application_model_calls": 4,
+      "ragas_skipped": null,
+      "context_precision": 0.9999999999666667,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "search_ad_invoice_reconciliation",
+      "question": "广告费账单有差异怎么申诉，广告费发票由谁开？",
+      "case_type": "dependent_multi_hop",
+      "error": null,
+      "latency_ms": 10400.744,
+      "application_model_calls": 5,
+      "ragas_skipped": null,
+      "context_precision": 0.9999999999666667,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "aftersales_intercept_refund",
+      "question": "商品已经发货但未签收，拦截成功后怎么退款，失败怎么办？",
+      "case_type": "dependent_multi_hop",
+      "error": null,
+      "latency_ms": 12767.152,
+      "application_model_calls": 4,
+      "ragas_skipped": null,
+      "context_precision": 0.99999999995,
+      "context_recall": 1.0
+    }
+  ],
+  "ragas": {
+    "telemetry_disabled": true,
+    "max_workers": 4,
+    "timeout_seconds": 120.0,
+    "seed": 42,
+    "deduplicated_identical_inputs": true,
+    "error": null,
+    "missing_only": false,
+    "reused_existing_inputs": 0,
+    "retried_missing_inputs": 8
+  }
+}

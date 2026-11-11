@@ -1,0 +1,234 @@
+{
+  "summary": {
+    "context_recall": 1.0,
+    "context_precision": 0.8886607142281714,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1127.6954,
+    "latency_p50_ms": 1124.658,
+    "latency_p95_ms": 1397.142,
+    "latency_max_ms": 1596.205,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "diagnostics": {
+    "graph_affected_cases": 18,
+    "graph_injected_chunks": 98,
+    "supplemental_chunks": 82
+  },
+  "per_case": [
+    {
+      "case_id": "shipping_sla",
+      "question": "现货普通订单付款后多久必须完成揽收？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1383.069,
+      "application_model_calls": 0,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "coupon_expire",
+      "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1385.53,
+      "application_model_calls": 0,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "seller_dsr_settlement",
+      "question": "DSR≥4.8的优质商家按什么周期结算，款项进入哪个账户？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1386.665,
+      "application_model_calls": 0,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "warehouse_mode_codes",
+      "question": "FBP、SOP和WMS在仓储履约中分别表示什么？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1596.205,
+      "application_model_calls": 0,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "platform_dispute",
+      "question": "买卖双方协商多久后可以申请平台介入，平台多久完成裁决和执行？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1147.978,
+      "application_model_calls": 0,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "return_without_reason",
+      "question": "申请七天无理由退货需要满足什么期限和商品条件？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1151.953,
+      "application_model_calls": 0,
+      "context_precision": 0.7499999999625,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "category_qualification_codes",
+      "question": "SC编号、CCC认证和ISBN分别对应哪些商品类目？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1140.517,
+      "application_model_calls": 0,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "payment_timeout",
+      "question": "普通订单和大促订单待付款多久会自动关闭？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 938.575,
+      "application_model_calls": 0,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "pop_operation_difference",
+      "question": "自营和POP在定价权、发货方式、客服责任上分别有什么差异？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1032.174,
+      "application_model_calls": 0,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "livestream_commission_refund",
+      "question": "直播带货订单售后退款成功后，达人佣金怎么处理？",
+      "case_type": "direct_fact",
+      "error": null,
+      "latency_ms": 1253.404,
+      "application_model_calls": 0,
+      "context_precision": 0.99999999995,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "refund_unshipped",
+      "question": "东西还没寄出来，我不要了，钱多久能退回来？",
+      "case_type": "paraphrase",
+      "error": null,
+      "latency_ms": 1016.428,
+      "application_model_calls": 0,
+      "context_precision": 0.5333333333155555,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "price_protection",
+      "question": "刚买完就降价了，平台能把多花的钱补给我吗？",
+      "case_type": "paraphrase",
+      "error": null,
+      "latency_ms": 1024.627,
+      "application_model_calls": 0,
+      "context_precision": 0.99999999995,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "pickup_definition",
+      "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+      "case_type": "paraphrase",
+      "error": null,
+      "latency_ms": 961.104,
+      "application_model_calls": 0,
+      "context_precision": 0.8333333333055556,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "store_coupon_stack",
+      "question": "店里发的券能和平台跨店优惠一起用吗？",
+      "case_type": "paraphrase",
+      "error": null,
+      "latency_ms": 1255.871,
+      "application_model_calls": 0,
+      "context_precision": 0.7041666666490625,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "payment_callback_delay",
+      "question": "银行卡已经扣钱，但订单还显示没付款，应该怎么办？",
+      "case_type": "paraphrase",
+      "error": null,
+      "latency_ms": 944.171,
+      "application_model_calls": 0,
+      "context_precision": 0.7777777777518519,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "combined_payment_refund",
+      "question": "组合支付的订单发生部分退款时，现金、优惠券和积分分别怎么退？",
+      "case_type": "multi_document",
+      "error": null,
+      "latency_ms": 919.408,
+      "application_model_calls": 0,
+      "context_precision": 0.9761904761742063,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "platinum_clearance_price_protection",
+      "question": "白金会员购买清仓商品后很快降价，能按30天价保申请退差价吗？",
+      "case_type": "multi_document",
+      "error": null,
+      "latency_ms": 1129.328,
+      "application_model_calls": 0,
+      "context_precision": 0.5833333333041666,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "livestream_campaign_shipping",
+      "question": "直播大促订单最晚多久揽收，超时后怎么赔付？",
+      "case_type": "multi_document",
+      "error": null,
+      "latency_ms": 1119.988,
+      "application_model_calls": 0,
+      "context_precision": 0.9166666666361111,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "return_inspection_refund_timeline",
+      "question": "退货申请通过后，买家寄回、仓库质检和退款到账分别要多久？",
+      "case_type": "multi_document",
+      "error": null,
+      "latency_ms": 936.901,
+      "application_model_calls": 0,
+      "context_precision": 0.999999999975,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "enterprise_purchase_payment_invoice",
+      "question": "企业购客户可以怎么付款，申请月结要什么条件，发票怎么开？",
+      "case_type": "multi_document",
+      "error": null,
+      "latency_ms": 830.012,
+      "application_model_calls": 0,
+      "context_precision": 0.6984126983894179,
+      "context_recall": 1.0
+    }
+  ],
+  "ragas": {
+    "telemetry_disabled": true,
+    "max_workers": 4,
+    "timeout_seconds": 120.0,
+    "seed": 42,
+    "deduplicated_identical_inputs": true,
+    "error": null,
+    "missing_only": false,
+    "reused_existing_inputs": 0,
+    "retried_missing_inputs": 40
+  }
+}

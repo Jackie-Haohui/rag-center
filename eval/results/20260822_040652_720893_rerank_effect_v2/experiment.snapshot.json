@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "rerank_effect_v2",
+  "title": "v2索引下不开启精排与Qwen3精排对比实验",
+  "target": "rerank_effect_v2",
+  "changed_fields": [
+    "rerank_options.enabled",
+    "rerank_provider"
+  ],
+  "dataset": "eval/datasets/golden_basic_20.json",
+  "suite": "basic",
+  "primary_metric": "context_precision",
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "shared_candidate_top_k": 20,
+  "baseline": {
+    "label": "v2 + RRF原始Top10（不精排）",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "noop"
+  },
+  "candidate": {
+    "label": "v2 + Qwen3精排Top10",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {
+      "enabled": true,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "qwen3"
+  },
+  "decision": {
+    "min_primary_improvement": 0.001,
+    "quality_guardrails": {
+      "context_recall": {
+        "min_delta": -0.02
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 2.0,
+      "max_model_calls_increase": 1.0
+    },
+    "max_failed_cases": 0
+  }
+}

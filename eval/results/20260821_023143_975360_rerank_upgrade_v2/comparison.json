@@ -1,0 +1,155 @@
+{
+  "generated_at": "2026-08-21T04:12:55.462203+00:00",
+  "experiment_id": "rerank_upgrade_v2",
+  "title": "v2索引下LLM重排与Qwen3-Rerank精排对比实验",
+  "target": "rerank_upgrade_v2",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": 20,
+  "final_top_k": 10,
+  "verdict": "regressed",
+  "verdict_text": "综合评估建议采用Qwen3精排",
+  "primary_metric": "context_precision",
+  "changed_fields": [
+    "rerank_provider"
+  ],
+  "baseline_label": "v2 + 原有 LLM 重排",
+  "candidate_label": "v2 + Qwen3-Rerank 精排",
+  "baseline_index_version": "v2",
+  "candidate_index_version": "v2",
+  "baseline": {
+    "context_recall": 0.95,
+    "context_precision": 0.9429761904201848,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 41714.81525,
+    "latency_p50_ms": 35199.582,
+    "latency_p95_ms": 79683.68005000002,
+    "latency_max_ms": 118678.141,
+    "average_application_model_calls": 1.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "candidate": {
+    "context_recall": 0.9833333333333333,
+    "context_precision": 0.8923412697818485,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 2377.1885,
+    "latency_p50_ms": 2191.924,
+    "latency_p95_ms": 3279.2717500000003,
+    "latency_max_ms": 3370.258,
+    "average_application_model_calls": 1.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0
+  },
+  "delta": {
+    "average_application_model_calls": 0.0,
+    "context_precision": -0.0506349206383363,
+    "context_recall": 0.033333333333333326,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": -115307.883,
+    "latency_mean_ms": -39337.626749999996,
+    "latency_p50_ms": -33007.658,
+    "latency_p95_ms": -76404.40830000002,
+    "model_calls_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_recall": {
+        "min_delta": 0.0
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.5,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": -0.0506349206383363,
+      "min_improvement": 0.0,
+      "passed": false
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_recall": {
+        "delta": 0.033333333333333326,
+        "min_delta": 0.0,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": -0.9588463817441374,
+      "max_latency_p95_increase_ratio": 0.5,
+      "latency_passed": true,
+      "model_calls_delta": 0.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "shipping_sla",
+        "question": "现货普通订单付款后多久必须完成揽收？",
+        "delta": 0.2499999999375
+      },
+      {
+        "case_id": "return_inspection_refund_timeline",
+        "question": "退货申请通过后，买家寄回、仓库质检和退款到账分别要多久？",
+        "delta": 0.14166666666383343
+      },
+      {
+        "case_id": "store_coupon_stack",
+        "question": "店里发的券能和平台跨店优惠一起用吗？",
+        "delta": 0.019642857142366132
+      }
+    ],
+    "regressed": [
+      {
+        "case_id": "price_protection",
+        "question": "刚买完就降价了，平台能把多花的钱补给我吗？",
+        "delta": -0.4555555555403704
+      },
+      {
+        "case_id": "refund_unshipped",
+        "question": "东西还没寄出来，我不要了，钱多久能退回来？",
+        "delta": -0.3000000000016667
+      },
+      {
+        "case_id": "return_without_reason",
+        "question": "申请七天无理由退货需要满足什么期限和商品条件？",
+        "delta": -0.2499999999375
+      }
+    ]
+  },
+  "recommendation": "本次20题评测中，Qwen3精排的Context Precision较LLM重排低5.1个百分点，但较v2不重排基线仍提升0.4个百分点；当前样本量较小，且尚未覆盖完善的回归题集，不能仅凭这次小样本差异否定精排。与此同时，Qwen3将P95延迟从79.7秒降至3.3秒，降低95.9%，并避免把生成式LLM的长耗时放入每次检索。历史同项目专项测算中，Qwen3每1000次约0.97元，LLM重排约17.04元，Qwen3理论成本低约94.3%；该成本数据用于选型参考，不作为本轮精确账单。综合质量、延迟、稳定性和规模化成本，建议中台默认采用Qwen3精排，LLM重排保留为离线质量参照或低频高价值场景的可选能力。"
+}

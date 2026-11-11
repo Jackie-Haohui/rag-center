@@ -1,0 +1,215 @@
+{
+  "generated_at": "2026-08-25T04:08:15.054097+00:00",
+  "experiment_id": "opt20_single_kb_performance_baseline",
+  "title": "优化二十改造前：单库固定Hybrid配置v1/v2基线",
+  "target": "opt20_prechange_single_kb_performance",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": null,
+  "final_top_k": 10,
+  "verdict": "effective",
+  "verdict_text": "有效，建议启用",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "index_version"
+  ],
+  "baseline_label": "改造前单库固定配置：v1 Hybrid 20+20 Top10",
+  "candidate_label": "改造前单库性能冻结组：v2 Hybrid 20+20 Top10",
+  "baseline_index_version": "v1",
+  "candidate_index_version": "v2",
+  "baseline": {
+    "context_recall": 0.9083333333333333,
+    "context_precision": 0.824851190418658,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1554.52925,
+    "latency_p50_ms": 1481.952,
+    "latency_p95_ms": 1973.89275,
+    "latency_max_ms": 1978.809,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "candidate": {
+    "context_recall": 0.95,
+    "context_precision": 0.9087499999362595,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1759.0387,
+    "latency_p50_ms": 1664.7965,
+    "latency_p95_ms": 2538.8884000000003,
+    "latency_max_ms": 2542.316,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 18,
+    "graph_injected_chunks": 101,
+    "supplemental_chunks": 84,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "delta": {
+    "average_application_model_calls": 0.0,
+    "context_precision": 0.08389880951760154,
+    "context_recall": 0.04166666666666663,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": 563.5069999999998,
+    "latency_mean_ms": 204.50945000000002,
+    "latency_p50_ms": 182.84449999999993,
+    "latency_p95_ms": 564.9956500000003,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": null,
+    "ragas_skipped_cases": 0.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.05
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 2.0,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.04166666666666663,
+      "min_improvement": 0.0,
+      "passed": true
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": 0.08389880951760154,
+        "min_delta": -0.05,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": 0.2862342191590705,
+      "max_latency_p95_increase_ratio": 2.0,
+      "latency_passed": true,
+      "model_calls_delta": 0.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": true
+    },
+    "citation_traceability": {
+      "value": null,
+      "required": null,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": 1.0
+      },
+      {
+        "case_id": "shipping_sla",
+        "question": "现货普通订单付款后多久必须完成揽收？",
+        "delta": 0.5
+      },
+      {
+        "case_id": "warehouse_mode_codes",
+        "question": "FBP、SOP和WMS在仓储履约中分别表示什么？",
+        "delta": 0.33333333333333337
+      }
+    ],
+    "regressed": [
+      {
+        "case_id": "coupon_expire",
+        "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+        "delta": -1.0
+      }
+    ]
+  },
+  "recall_case_changes": {
+    "improved": [
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": 1.0
+      },
+      {
+        "case_id": "shipping_sla",
+        "question": "现货普通订单付款后多久必须完成揽收？",
+        "delta": 0.5
+      },
+      {
+        "case_id": "warehouse_mode_codes",
+        "question": "FBP、SOP和WMS在仓储履约中分别表示什么？",
+        "delta": 0.33333333333333337
+      }
+    ],
+    "regressed": [
+      {
+        "case_id": "coupon_expire",
+        "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+        "delta": -1.0
+      }
+    ]
+  },
+  "recommendation": "核心质量指标有提升，质量护栏和成本限制均通过，建议启用「改造前单库性能冻结组：v2 Hybrid 20+20 Top10」。"
+}

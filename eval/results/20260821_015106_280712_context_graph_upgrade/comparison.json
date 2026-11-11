@@ -1,0 +1,134 @@
+{
+  "generated_at": "2026-08-21T02:21:32.048475+00:00",
+  "experiment_id": "context_graph_upgrade",
+  "title": "v1与v2轻量图谱增强检索对比实验",
+  "target": "context_graph_upgrade",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": null,
+  "final_top_k": 10,
+  "verdict": "effective",
+  "verdict_text": "有效，建议启用",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "index_version"
+  ],
+  "baseline_label": "v1现有检索链路",
+  "candidate_label": "v2轻量图谱增强链路",
+  "baseline_index_version": "v1",
+  "candidate_index_version": "v2",
+  "baseline": {
+    "context_recall": 0.925,
+    "context_precision": 0.8399345237516216,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1049.32595,
+    "latency_p50_ms": 994.129,
+    "latency_p95_ms": 1536.7234999999998,
+    "latency_max_ms": 1540.723,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "candidate": {
+    "context_recall": 1.0,
+    "context_precision": 0.8886607142281714,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1127.6954,
+    "latency_p50_ms": 1124.658,
+    "latency_p95_ms": 1397.142,
+    "latency_max_ms": 1596.205,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 18,
+    "graph_injected_chunks": 98,
+    "supplemental_chunks": 82
+  },
+  "delta": {
+    "average_application_model_calls": 0.0,
+    "context_precision": 0.0487261904765498,
+    "context_recall": 0.07499999999999996,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": 55.48199999999997,
+    "latency_mean_ms": 78.36945000000014,
+    "latency_p50_ms": 130.52899999999988,
+    "latency_p95_ms": -139.58149999999978,
+    "model_calls_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.001,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.02
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.3,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.07499999999999996,
+      "min_improvement": 0.001,
+      "passed": true
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": 0.0487261904765498,
+        "min_delta": -0.02,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": -0.09083058858669096,
+      "max_latency_p95_increase_ratio": 0.3,
+      "latency_passed": true,
+      "model_calls_delta": 0.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": 1.0
+      },
+      {
+        "case_id": "shipping_sla",
+        "question": "现货普通订单付款后多久必须完成揽收？",
+        "delta": 0.5
+      }
+    ],
+    "regressed": []
+  },
+  "recommendation": "核心质量指标有提升，质量护栏和成本限制均通过，建议启用「v2轻量图谱增强链路」。"
+}

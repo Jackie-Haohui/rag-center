@@ -1,0 +1,97 @@
+{
+  "run_id": "20260821_023143_rerank_upgrade_v2",
+  "experiment_id": "rerank_upgrade_v2",
+  "title": "v2索引下LLM重排与Qwen3-Rerank精排对比实验",
+  "dataset_version": "golden_basic_20_v2",
+  "corpus_versions": {
+    "ecommerce": "ecommerce_corpus_base"
+  },
+  "knowledge_base_ids": {
+    "ecommerce": "df1dad54-7bfd-4ec7-9116-cfe2448e9389"
+  },
+  "suite": "basic",
+  "case_count": 20,
+  "primary_metric": "context_precision",
+  "started_at": "2026-08-21T02:31:43.977926+00:00",
+  "finished_at": "2026-08-21T02:36:01.877172+00:00",
+  "duration_seconds": 257.899,
+  "git_commit": "f456d185b54e803ba2a6d11f799e115c0f5b1121",
+  "dirty": true,
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "baseline": {
+    "label": "v2 + 原有 LLM 重排",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {
+      "enabled": true,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "llm"
+  },
+  "candidate": {
+    "label": "v2 + Qwen3-Rerank 精排",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {
+      "enabled": true,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "qwen3"
+  },
+  "telemetry": {
+    "ragas_do_not_track": true,
+    "offline_langfuse_enabled": false
+  },
+  "index_policy": {
+    "baseline": "v2",
+    "candidate": "v2"
+  },
+  "status": "completed",
+  "groups": {
+    "baseline": {
+      "total_cases": 20,
+      "successful_cases": 18,
+      "failed_cases": 2
+    },
+    "candidate": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    }
+  },
+  "verdict": "regressed",
+  "verdict_text": "综合评估建议采用Qwen3精排"
+}

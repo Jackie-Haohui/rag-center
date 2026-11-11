@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "opt20_v2_balanced_vs_quality_regression",
+  "title": "优化二十 v2 Balanced 与 Quality 三档回归",
+  "target": "retrieve_profile",
+  "changed_fields": [
+    "profile",
+    "retrieval_options.vector_top_k",
+    "retrieval_options.bm25_top_k",
+    "rerank_options.enabled",
+    "rerank_options.top_n",
+    "query_options.enabled",
+    "query_options.strategy"
+  ],
+  "dataset": "eval/datasets/golden_basic_20.json",
+  "suite": "basic",
+  "primary_metric": "context_recall",
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120,
+  "baseline": {
+    "label": "v2 Balanced",
+    "index_version": "v2",
+    "profile": "balanced"
+  },
+  "candidate": {
+    "label": "v2 Quality",
+    "index_version": "v2",
+    "profile": "quality"
+  },
+  "decision": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_precision": {"min_delta": -0.05}
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 5.0,
+      "max_model_calls_increase": 2.0
+    },
+    "max_failed_cases": 0
+  }
+}

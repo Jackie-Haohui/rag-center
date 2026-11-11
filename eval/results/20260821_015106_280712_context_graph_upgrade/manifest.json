@@ -1,0 +1,97 @@
+{
+  "run_id": "20260821_015106_context_graph_upgrade",
+  "experiment_id": "context_graph_upgrade",
+  "title": "v1与v2轻量图谱增强检索对比实验",
+  "dataset_version": "golden_basic_20_v2",
+  "corpus_versions": {
+    "ecommerce": "ecommerce_corpus_base"
+  },
+  "knowledge_base_ids": {
+    "ecommerce": "df1dad54-7bfd-4ec7-9116-cfe2448e9389"
+  },
+  "suite": "basic",
+  "case_count": 20,
+  "primary_metric": "context_recall",
+  "started_at": "2026-08-21T01:51:06.282466+00:00",
+  "finished_at": "2026-08-21T01:51:17.649176+00:00",
+  "duration_seconds": 11.367,
+  "git_commit": "2df0d0f2817766f37bb0c3089c9d6f16fc124f69",
+  "dirty": true,
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "baseline": {
+    "label": "v1现有检索链路",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null
+  },
+  "candidate": {
+    "label": "v2轻量图谱增强链路",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null
+  },
+  "telemetry": {
+    "ragas_do_not_track": true,
+    "offline_langfuse_enabled": false
+  },
+  "index_policy": {
+    "baseline": "v1",
+    "candidate": "v2"
+  },
+  "status": "completed",
+  "groups": {
+    "baseline": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    },
+    "candidate": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    }
+  },
+  "verdict": "effective",
+  "verdict_text": "有效，建议启用"
+}

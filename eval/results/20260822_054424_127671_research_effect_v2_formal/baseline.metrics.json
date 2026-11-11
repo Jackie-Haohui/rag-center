@@ -1,0 +1,163 @@
+{
+  "summary": {
+    "context_recall": 0.9444444444444444,
+    "context_precision": 0.8888888888351851,
+    "evaluated_cases": 9,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 1,
+    "successful_cases": 10,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 20884.4341,
+    "latency_p50_ms": 20235.781499999997,
+    "latency_p95_ms": 31976.411900000003,
+    "latency_max_ms": 34520.837,
+    "average_application_model_calls": 2.0,
+    "model_calls_evaluated_cases": 10,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": 2.9,
+    "average_evidence_chars": 596.4,
+    "citation_traceable_items": 29,
+    "citation_total_items": 29,
+    "citation_traceability_rate": 1.0,
+    "evidence_statuses": {
+      "complete": 9,
+      "missing": 1
+    },
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "per_case": [
+    {
+      "case_id": "payment_combined_refund",
+      "question": "组合支付发生部分退款后，银行卡、优惠券和积分分别怎么退？",
+      "case_type": "independent_multi_aspect",
+      "error": null,
+      "latency_ms": 34520.837,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.8333333332916666,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "live_category_qualification",
+      "question": "直播带货美妆或医疗器械需要哪些额外资质？",
+      "case_type": "dependent_multi_hop",
+      "error": null,
+      "latency_ms": 28071.193,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.499999999975,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "payment_risk_appeal",
+      "question": "异地登录后大额支付被风控拦截，怎么申诉，多久复核？",
+      "case_type": "independent_multi_aspect",
+      "error": null,
+      "latency_ms": 18102.373,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "member_points_refund",
+      "question": "积分抵扣订单退款后，积分和现金分别怎么退？",
+      "case_type": "independent_multi_aspect",
+      "error": null,
+      "latency_ms": 10196.257,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.9999999999,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "aftersales_seven_day_freight",
+      "question": "七天无理由退货要满足哪些条件，退货运费由谁出？",
+      "case_type": "independent_multi_aspect",
+      "error": null,
+      "latency_ms": 13199.108,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.8333333332916666,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "live_campaign_shipping",
+      "question": "大场直播产生的大促订单多久要发货，超时如何处理？",
+      "case_type": "dependent_multi_hop",
+      "error": null,
+      "latency_ms": 28866.559,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.99999999995,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "search_ad_invoice_reconciliation",
+      "question": "广告费账单有差异怎么申诉，广告费发票由谁开？",
+      "case_type": "dependent_multi_hop",
+      "error": null,
+      "latency_ms": 22406.349,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.8333333332916666,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "aftersales_intercept_refund",
+      "question": "商品已经发货但未签收，拦截成功后怎么退款，失败怎么办？",
+      "case_type": "dependent_multi_hop",
+      "error": null,
+      "latency_ms": 13163.545,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.99999999995,
+      "context_recall": 1.0
+    },
+    {
+      "case_id": "control_no_answer_offline_parking",
+      "question": "线下门店停车费可以用平台积分抵扣吗？",
+      "case_type": "control",
+      "error": null,
+      "latency_ms": 17948.93,
+      "application_model_calls": 2,
+      "ragas_skipped": "expected_missing_no_context"
+    },
+    {
+      "case_id": "control_shipping_scope_conflict",
+      "question": "普通现货订单和大促订单分别多久揽收，两个时限冲突吗？",
+      "case_type": "control",
+      "error": null,
+      "latency_ms": 22369.19,
+      "application_model_calls": 2,
+      "ragas_skipped": null,
+      "context_precision": 0.9999999999666667,
+      "context_recall": 0.5
+    }
+  ],
+  "ragas": {
+    "telemetry_disabled": true,
+    "max_workers": 4,
+    "timeout_seconds": 120.0,
+    "seed": 42,
+    "deduplicated_identical_inputs": true,
+    "error": null,
+    "missing_only": true,
+    "reused_existing_inputs": 17,
+    "retried_missing_inputs": 0
+  }
+}

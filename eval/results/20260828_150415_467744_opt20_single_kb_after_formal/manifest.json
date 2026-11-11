@@ -1,0 +1,101 @@
+{
+  "run_id": "20260828_150415_opt20_single_kb_after",
+  "experiment_id": "opt20_single_kb_after",
+  "title": "优化二十：单库固定 v2 Hybrid 配置改造前后",
+  "dataset_version": "golden_basic_20_v2",
+  "corpus_versions": {
+    "ecommerce": "ecommerce_corpus_base"
+  },
+  "knowledge_base_ids": {
+    "ecommerce": "df1dad54-7bfd-4ec7-9116-cfe2448e9389"
+  },
+  "suite": "basic",
+  "case_count": 20,
+  "primary_metric": "context_recall",
+  "started_at": "2026-08-28T15:04:15.470773+00:00",
+  "finished_at": "2026-08-28T15:04:22.723000+00:00",
+  "duration_seconds": 7.252,
+  "git_commit": "6a619a0aa3e0d4b7f9b7b94d0bdc03f6a06fd065",
+  "dirty": true,
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 2,
+  "timeout_seconds": 120.0,
+  "baseline": {
+    "label": "改造前冻结：v2 Hybrid 20+20 Top10",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "candidate": {
+    "label": "改造后：v2 Hybrid 20+20 Top10",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "frozen_baseline": {
+    "run_dir": "eval/results/20260825_034128_199038_opt20_single_kb_performance_baseline_pre_opt20",
+    "group": "candidate"
+  },
+  "telemetry": {
+    "ragas_do_not_track": true,
+    "offline_langfuse_enabled": false
+  },
+  "index_policy": {
+    "baseline": "v2",
+    "candidate": "v2"
+  },
+  "status": "completed",
+  "groups": {
+    "baseline": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    },
+    "candidate": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    }
+  },
+  "verdict": "effective",
+  "verdict_text": "有效，建议启用"
+}

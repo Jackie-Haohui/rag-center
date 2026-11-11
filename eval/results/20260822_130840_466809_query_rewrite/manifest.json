@@ -1,0 +1,99 @@
+{
+  "run_id": "20260822_130840_query_rewrite",
+  "experiment_id": "query_rewrite",
+  "title": "Query Rewrite 消融实验",
+  "dataset_version": "golden_basic_20_v2",
+  "corpus_versions": {
+    "ecommerce": "ecommerce_corpus_base"
+  },
+  "knowledge_base_ids": {
+    "ecommerce": "df1dad54-7bfd-4ec7-9116-cfe2448e9389"
+  },
+  "suite": "basic",
+  "case_count": 20,
+  "primary_metric": "context_recall",
+  "started_at": "2026-08-22T13:08:40.469716+00:00",
+  "finished_at": "2026-08-22T13:09:03.890782+00:00",
+  "duration_seconds": 23.421,
+  "git_commit": "4068129314712ec7caba9ecd42e575ec5d8872b7",
+  "dirty": true,
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "baseline": {
+    "label": "关闭 Query Rewrite",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 5,
+    "retrieval_options": {
+      "mode": "vector",
+      "vector_top_k": 10,
+      "bm25_top_k": 10,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 5
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "rewrite",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "candidate": {
+    "label": "开启 Query Rewrite",
+    "index_version": "v1",
+    "profile": "custom",
+    "top_k": 5,
+    "retrieval_options": {
+      "mode": "vector",
+      "vector_top_k": 10,
+      "bm25_top_k": 10,
+      "rrf_k": 60
+    },
+    "rerank_options": {
+      "enabled": false,
+      "top_n": 5
+    },
+    "evidence_options": {
+      "enabled": false
+    },
+    "query_options": {
+      "enabled": true,
+      "strategy": "rewrite",
+      "synonym_enabled": false
+    },
+    "rerank_provider": null,
+    "execution_mode": "retrieve"
+  },
+  "telemetry": {
+    "ragas_do_not_track": true,
+    "offline_langfuse_enabled": false
+  },
+  "index_policy": {
+    "baseline": "v1",
+    "candidate": "v1"
+  },
+  "status": "completed",
+  "groups": {
+    "baseline": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    },
+    "candidate": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    }
+  },
+  "verdict": "effective_costly",
+  "verdict_text": "质量收益成立，继续保留第一期 Query Rewrite，当前不做实现调整"
+}

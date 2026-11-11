@@ -1,0 +1,118 @@
+{
+  "generated_at": "2026-08-20T10:41:00.668579+00:00",
+  "experiment_id": "hybrid_search",
+  "title": "Hybrid Search 消融实验",
+  "target": "hybrid_search",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "verdict": "effective",
+  "verdict_text": "有效，建议启用",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "retrieval_options.mode"
+  ],
+  "baseline_label": "仅使用向量检索",
+  "candidate_label": "使用向量、BM25和RRF",
+  "baseline": {
+    "context_recall": 0.9083333333333333,
+    "context_precision": 0.8695039681954004,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1230.2108,
+    "latency_p50_ms": 950.4415,
+    "latency_p95_ms": 2278.3163,
+    "latency_max_ms": 2286.131,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_5": 0.9497344063810352,
+    "mrr_at_5": 0.95,
+    "rank_evaluated_cases": 20
+  },
+  "candidate": {
+    "context_recall": 0.9083333333333333,
+    "context_precision": 0.8763095237512187,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1155.0553,
+    "latency_p50_ms": 1170.066,
+    "latency_p95_ms": 1431.4839500000005,
+    "latency_max_ms": 2111.094,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_5": 0.9614663745316042,
+    "mrr_at_5": 0.95,
+    "rank_evaluated_cases": 20
+  },
+  "delta": {
+    "average_application_model_calls": 0.0,
+    "context_precision": 0.006805555555818299,
+    "context_recall": 0.0,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": -175.0369999999998,
+    "latency_mean_ms": -75.15550000000007,
+    "latency_p50_ms": 219.6245,
+    "latency_p95_ms": -846.8323499999995,
+    "model_calls_evaluated_cases": 0.0,
+    "mrr_at_5": 0.0,
+    "ndcg_at_5": 0.011731968150568983,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.02
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.3,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.0,
+      "min_improvement": 0.0,
+      "passed": true
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": 0.006805555555818299,
+        "min_delta": -0.02,
+        "passed": true
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": -0.37169217900078205,
+      "max_latency_p95_increase_ratio": 0.3,
+      "latency_passed": true,
+      "model_calls_delta": 0.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [],
+    "regressed": []
+  },
+  "recommendation": "核心质量指标有提升，质量护栏和成本限制均通过，建议启用 candidate 配置。"
+}

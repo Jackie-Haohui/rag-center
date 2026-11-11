@@ -1,0 +1,203 @@
+{
+  "generated_at": "2026-08-24T03:47:46.221993+00:00",
+  "experiment_id": "synonym_expansion",
+  "title": "同义词扩展消融实验",
+  "target": "synonym_expansion",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": null,
+  "final_top_k": 5,
+  "verdict": "regressed",
+  "verdict_text": "出现负向效果，建议回退",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "query_options.synonym_enabled"
+  ],
+  "baseline_label": "关闭同义词扩展",
+  "candidate_label": "开启同义词扩展",
+  "baseline_index_version": "v1",
+  "candidate_index_version": "v1",
+  "baseline": {
+    "context_recall": 0.8833333333333333,
+    "context_precision": 0.8744444443800741,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1487.34915,
+    "latency_p50_ms": 1474.577,
+    "latency_p95_ms": 2274.19295,
+    "latency_max_ms": 2343.96,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "candidate": {
+    "context_recall": 0.8166666666666667,
+    "context_precision": 0.8466666666024166,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1062.6248,
+    "latency_p50_ms": 1079.1325,
+    "latency_p95_ms": 1268.16115,
+    "latency_max_ms": 1285.587,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 0,
+    "graph_injected_chunks": 0,
+    "supplemental_chunks": 0,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "delta": {
+    "average_application_model_calls": 0.0,
+    "context_precision": -0.027777777777657442,
+    "context_recall": -0.06666666666666665,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": -1058.373,
+    "latency_mean_ms": -424.72434999999996,
+    "latency_p50_ms": -395.44450000000006,
+    "latency_p95_ms": -1006.0318000000002,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": null,
+    "ragas_skipped_cases": 0.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.03,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.02
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.3,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": -0.06666666666666665,
+      "min_improvement": 0.03,
+      "passed": false
+    },
+    "quality_improved": false,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": -0.027777777777657442,
+        "min_delta": -0.02,
+        "passed": false
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": -0.44236870930410727,
+      "max_latency_p95_increase_ratio": 0.3,
+      "latency_passed": true,
+      "model_calls_delta": 0.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": true
+    },
+    "citation_traceability": {
+      "value": null,
+      "required": null,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [],
+    "regressed": [
+      {
+        "case_id": "seller_dsr_settlement",
+        "question": "DSR≥4.8的优质商家按什么周期结算，款项进入哪个账户？",
+        "delta": -0.5
+      },
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": -0.5
+      },
+      {
+        "case_id": "combined_payment_refund",
+        "question": "组合支付的订单发生部分退款时，现金、优惠券和积分分别怎么退？",
+        "delta": -0.3333333333333333
+      }
+    ]
+  },
+  "recall_case_changes": {
+    "improved": [],
+    "regressed": [
+      {
+        "case_id": "seller_dsr_settlement",
+        "question": "DSR≥4.8的优质商家按什么周期结算，款项进入哪个账户？",
+        "delta": -0.5
+      },
+      {
+        "case_id": "pickup_definition",
+        "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+        "delta": -0.5
+      },
+      {
+        "case_id": "combined_payment_refund",
+        "question": "组合支付的订单发生部分退款时，现金、优惠券和积分分别怎么退？",
+        "delta": -0.3333333333333333
+      }
+    ]
+  },
+  "recommendation": "主指标明显下降或质量护栏未通过，建议保持「关闭同义词扩展」并排查退化题目。"
+}

@@ -1,0 +1,513 @@
+{
+  "schema_version": "1.0",
+  "name": "rag_center_golden",
+  "version": "golden_basic_20_v2",
+  "description": "20道电商基础检索题，包含4道关键词与业务缩写题",
+  "knowledge_bases": {
+    "ecommerce": {
+      "kb_id": "df1dad54-7bfd-4ec7-9116-cfe2448e9389",
+      "corpus_version": "ecommerce_corpus_base"
+    }
+  },
+  "suites": {
+    "basic": {
+      "description": "20道电商基础题",
+      "case_ids": [
+        "shipping_sla",
+        "coupon_expire",
+        "seller_dsr_settlement",
+        "warehouse_mode_codes",
+        "platform_dispute",
+        "return_without_reason",
+        "category_qualification_codes",
+        "payment_timeout",
+        "pop_operation_difference",
+        "livestream_commission_refund",
+        "refund_unshipped",
+        "price_protection",
+        "pickup_definition",
+        "store_coupon_stack",
+        "payment_callback_delay",
+        "combined_payment_refund",
+        "platinum_clearance_price_protection",
+        "livestream_campaign_shipping",
+        "return_inspection_refund_timeline",
+        "enterprise_purchase_payment_invoice"
+      ]
+    },
+    "all": {
+      "description": "当前数据集的全部题目",
+      "case_ids": "all"
+    }
+  },
+  "cases": [
+    {
+      "id": "shipping_sla",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "现货普通订单付款后多久必须完成揽收？",
+      "ground_truth": "现货普通订单须在付款后24小时内完成揽收；揽收以快递公司扫描揽收节点为准，仅生成电子面单不算揽收。",
+      "expected_documents": [
+        "仓储物流与发货履约SLA.md"
+      ],
+      "expected_headings": [
+        "2. 发货 SLA"
+      ],
+      "tags": [
+        "logistics",
+        "time_limit"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "coupon_expire",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+      "ground_truth": "平台券领取后通常有效7至30天，过期作废且不补发，具体适用期以券面标注为准。",
+      "expected_documents": [
+        "促销活动与优惠券使用规则.md"
+      ],
+      "expected_headings": [
+        "2.1 平台券"
+      ],
+      "tags": [
+        "promotion",
+        "coupon",
+        "time_limit"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "seller_dsr_settlement",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "DSR≥4.8的优质商家按什么周期结算，款项进入哪个账户？",
+      "ground_truth": "DSR不低于4.8的优质商家货款结算周期为T+3，款项到账至商家的对公账户；T是消费者确认收货日或超时自动确认日。",
+      "expected_documents": [
+        "商家入驻结算与对账流程.md"
+      ],
+      "expected_headings": [
+        "2. 货款结算周期"
+      ],
+      "tags": [
+        "settlement",
+        "seller",
+        "business_code",
+        "lexical"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "warehouse_mode_codes",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "FBP、SOP和WMS在仓储履约中分别表示什么？",
+      "ground_truth": "FBP表示平台仓，由商家备货入平台仓后由平台打包发货；SOP表示商家仓，由商家自行打单发货；WMS是云仓模式下与平台系统对接的仓储管理系统。",
+      "expected_documents": [
+        "仓储物流与发货履约SLA.md"
+      ],
+      "expected_headings": [
+        "1. 履约模式"
+      ],
+      "tags": [
+        "logistics",
+        "business_code",
+        "lexical"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "platform_dispute",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "买卖双方协商多久后可以申请平台介入，平台多久完成裁决和执行？",
+      "ground_truth": "买卖双方协商3天仍未达成一致，任一方可申请平台介入；平台在5个工作日内出具裁决，并在裁决后3个工作日内执行退款或打款。",
+      "expected_documents": [
+        "平台交易规则与买家保障.md"
+      ],
+      "expected_headings": [
+        "3.4 平台介入"
+      ],
+      "tags": [
+        "dispute",
+        "buyer_protection",
+        "time_limit"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "return_without_reason",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "申请七天无理由退货需要满足什么期限和商品条件？",
+      "ground_truth": "买家应在确认收货后7个自然日内发起申请，以物流签收日或系统确认收货日较早者为准；商品须保持完好且不影响二次销售，并附带原包装、说明书和赠品。",
+      "expected_documents": [
+        "售后服务与退换货政策.md"
+      ],
+      "expected_headings": [
+        "2.1 适用条件"
+      ],
+      "tags": [
+        "after_sales",
+        "return",
+        "time_limit"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "category_qualification_codes",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "SC编号、CCC认证和ISBN分别对应哪些商品类目？",
+      "ground_truth": "SC编号对应食品类目，CCC认证对应目录内的3C数码产品，ISBN对应出版物类目。",
+      "expected_documents": [
+        "商品上架与类目合规规范.md"
+      ],
+      "expected_headings": [
+        "3. 类目资质对照（示例）"
+      ],
+      "tags": [
+        "product",
+        "qualification",
+        "business_code",
+        "lexical"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "payment_timeout",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "普通订单和大促订单待付款多久会自动关闭？",
+      "ground_truth": "普通订单待付款30分钟未支付会自动关闭，大促订单的待付款时间可以缩短为15分钟。",
+      "expected_documents": [
+        "支付方式与资金安全规范.md"
+      ],
+      "expected_headings": [
+        "2. 支付流程与超时"
+      ],
+      "tags": [
+        "payment",
+        "order",
+        "time_limit"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "pop_operation_difference",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "自营和POP在定价权、发货方式、客服责任上分别有什么差异？",
+      "ground_truth": "自营由平台采销定价、使用平台仓发货并由平台客服首接；POP由商家定价，使用商家仓或平台云仓发货，客服以商家主责，平台可以介入。",
+      "expected_documents": [
+        "商品上架与类目合规规范.md"
+      ],
+      "expected_headings": [
+        "6. 自营与 POP 差异"
+      ],
+      "tags": [
+        "product",
+        "pop",
+        "business_code",
+        "lexical"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "livestream_commission_refund",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "direct_fact",
+      "question": "直播带货订单售后退款成功后，达人佣金怎么处理？",
+      "ground_truth": "直播带货佣金在订单确认收货后计佣；订单售后成功退款时，对应达人佣金会被收回。",
+      "expected_documents": [
+        "直播带货与内容营销合规.md"
+      ],
+      "expected_headings": [
+        "4. 选品与佣金"
+      ],
+      "tags": [
+        "livestream",
+        "commission",
+        "refund"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "refund_unshipped",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "paraphrase",
+      "question": "东西还没寄出来，我不要了，钱多久能退回来？",
+      "ground_truth": "未发货订单可以申请极速退款，申请后2小时内原路退回。",
+      "expected_documents": [
+        "平台交易规则与买家保障.md"
+      ],
+      "expected_headings": [
+        "3.2 极速退款"
+      ],
+      "tags": [
+        "refund",
+        "colloquial",
+        "time_limit"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "price_protection",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "paraphrase",
+      "question": "刚买完就降价了，平台能把多花的钱补给我吗？",
+      "ground_truth": "参加价格保护的商品在价保期内降价，消费者可以申请退还实付金额与当前可购最低价之间的差价；秒杀、拼团、限量抢购、二手商品和已关闭订单不适用。",
+      "expected_documents": [
+        "促销活动与优惠券使用规则.md"
+      ],
+      "expected_headings": [
+        "4. 价格保护（价保）"
+      ],
+      "tags": [
+        "promotion",
+        "price_protection",
+        "colloquial"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "pickup_definition",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "paraphrase",
+      "question": "商家只打了快递单但快递还没扫描，这算按时发货了吗？",
+      "ground_truth": "不算。平台以快递公司扫描揽收节点作为揽收完成，仅生成电子面单不属于已揽收。",
+      "expected_documents": [
+        "仓储物流与发货履约SLA.md"
+      ],
+      "expected_headings": [
+        "2. 发货 SLA"
+      ],
+      "tags": [
+        "logistics",
+        "pickup",
+        "colloquial"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "store_coupon_stack",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "paraphrase",
+      "question": "店里发的券能和平台跨店优惠一起用吗？",
+      "ground_truth": "店铺券只能用于本店商品，可以与平台跨店满减按具体活动规则叠加。",
+      "expected_documents": [
+        "促销活动与优惠券使用规则.md"
+      ],
+      "expected_headings": [
+        "2.2 店铺券"
+      ],
+      "tags": [
+        "promotion",
+        "coupon",
+        "colloquial"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "payment_callback_delay",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "paraphrase",
+      "question": "银行卡已经扣钱，但订单还显示没付款，应该怎么办？",
+      "ground_truth": "应先根据支付流水号检查支付成功回调是否延迟，客服可以手动核销；如果是同一订单重复扣款，系统会在1至3个工作日内自动退回多余款项。",
+      "expected_documents": [
+        "支付方式与资金安全规范.md"
+      ],
+      "expected_headings": [
+        "7. 对账与异常处理",
+        "2. 支付流程与超时"
+      ],
+      "tags": [
+        "payment",
+        "callback",
+        "colloquial"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "combined_payment_refund",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "multi_document",
+      "question": "组合支付的订单发生部分退款时，现金、优惠券和积分分别怎么退？",
+      "ground_truth": "现金部分按商品行实付金额和原支付比例拆分后原路退回，各支付通道按各自到账时效处理；未过期且未使用的平台券一般退回，店铺券按商家规则处理；已使用积分按抵扣金额等值退回积分池，但积分已经过期则不退。",
+      "expected_documents": [
+        "支付方式与资金安全规范.md",
+        "促销活动与优惠券使用规则.md",
+        "会员体系与积分权益说明.md"
+      ],
+      "expected_headings": [
+        "3. 退款原路退回",
+        "6. 客服常见问题应答",
+        "2.2 使用与有效期"
+      ],
+      "tags": [
+        "payment",
+        "refund",
+        "coupon",
+        "points",
+        "cross_document"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "platinum_clearance_price_protection",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "multi_document",
+      "question": "白金会员购买清仓商品后很快降价，能按30天价保申请退差价吗？",
+      "ground_truth": "不能。白金会员通常享有30天价保，但清仓商品属于会员价保排除范围；只有参加价保且不属于排除活动的商品，才可以在价保期内申请退差价。",
+      "expected_documents": [
+        "会员体系与积分权益说明.md",
+        "促销活动与优惠券使用规则.md"
+      ],
+      "expected_headings": [
+        "4. 价保与会员专属服务",
+        "4. 价格保护（价保）"
+      ],
+      "tags": [
+        "membership",
+        "price_protection",
+        "exception",
+        "cross_document"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "livestream_campaign_shipping",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "multi_document",
+      "question": "直播大促订单最晚多久揽收，超时后怎么赔付？",
+      "ground_truth": "直播大促订单适用活动发货规则，通常应在48小时内揽收，特殊类目可以放宽至72小时；延迟发货按订单金额的5%向买家赔付券，单笔上限30元。",
+      "expected_documents": [
+        "直播带货与内容营销合规.md",
+        "促销活动与优惠券使用规则.md",
+        "仓储物流与发货履约SLA.md"
+      ],
+      "expected_headings": [
+        "5. 直播间交易特殊规则",
+        "5. 大促商家规则（节选）",
+        "2. 发货 SLA"
+      ],
+      "tags": [
+        "livestream",
+        "logistics",
+        "compensation",
+        "cross_document"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "return_inspection_refund_timeline",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "multi_document",
+      "question": "退货申请通过后，买家寄回、仓库质检和退款到账分别要多久？",
+      "ground_truth": "买家应在审核通过后7天内让退货包裹完成揽收；仓库或商家签收后应在48小时内完成质检并同意或拒绝退款；同意退款后通常在1至3个工作日内原路退回，具体到账时间还取决于原支付渠道。",
+      "expected_documents": [
+        "售后服务与退换货政策.md",
+        "仓储物流与发货履约SLA.md",
+        "支付方式与资金安全规范.md"
+      ],
+      "expected_headings": [
+        "4. 售后时效 SLA",
+        "6. 逆向物流（退货）",
+        "3. 退款原路退回"
+      ],
+      "tags": [
+        "after_sales",
+        "logistics",
+        "refund",
+        "time_limit",
+        "cross_document"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    },
+    {
+      "id": "enterprise_purchase_payment_invoice",
+      "kb_alias": "ecommerce",
+      "kb_aliases": null,
+      "suite": "basic",
+      "case_type": "multi_document",
+      "question": "企业购客户可以怎么付款，申请月结要什么条件，发票怎么开？",
+      "ground_truth": "企业购客户完成企业认证后，可以使用对公转账；授信审核通过后可以使用月结账期。企业发票按企业抬头批量开具增值税专用发票，商家应按订单金额向消费者开具电子普通发票或专用发票。",
+      "expected_documents": [
+        "会员体系与积分权益说明.md",
+        "支付方式与资金安全规范.md",
+        "商家入驻结算与对账流程.md"
+      ],
+      "expected_headings": [
+        "5. 企业购会员",
+        "1. 支持的支付方式",
+        "6. 发票与税务"
+      ],
+      "tags": [
+        "enterprise",
+        "payment",
+        "invoice",
+        "cross_document"
+      ],
+      "required_aspects": [],
+      "relevance": {}
+    }
+  ]
+}

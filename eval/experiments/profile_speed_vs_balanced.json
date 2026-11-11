@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "profile_speed_vs_balanced",
+  "title": "Speed 与 Balanced Profile 对比实验",
+  "target": "retrieve_profile",
+  "changed_fields": [
+    "profile",
+    "top_k",
+    "retrieval_options.mode",
+    "retrieval_options.bm25_top_k"
+  ],
+  "dataset": "eval/datasets/golden_basic_20.json",
+  "suite": "basic",
+  "primary_metric": "context_recall",
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120,
+  "baseline": {
+    "label": "speed",
+    "profile": "speed"
+  },
+  "candidate": {
+    "label": "balanced",
+    "profile": "balanced"
+  },
+  "decision": {
+    "min_primary_improvement": 0.03,
+    "quality_guardrails": {
+      "context_precision": {"min_delta": -0.03}
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 0.5,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  }
+}

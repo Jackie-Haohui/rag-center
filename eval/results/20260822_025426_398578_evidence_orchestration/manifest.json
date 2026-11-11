@@ -1,0 +1,99 @@
+{
+  "run_id": "20260822_025426_evidence_orchestration",
+  "experiment_id": "evidence_orchestration",
+  "title": "v2证据编排统一对比实验",
+  "dataset_version": "golden_basic_20_v2",
+  "corpus_versions": {
+    "ecommerce": "ecommerce_corpus_base"
+  },
+  "knowledge_base_ids": {
+    "ecommerce": "df1dad54-7bfd-4ec7-9116-cfe2448e9389"
+  },
+  "suite": "basic",
+  "case_count": 20,
+  "primary_metric": "context_precision",
+  "started_at": "2026-08-22T02:54:26.400906+00:00",
+  "finished_at": "2026-08-22T02:56:09.987174+00:00",
+  "duration_seconds": 103.586,
+  "git_commit": "cf4b70c208ab91b5897443feaecce5d4c7553fbe",
+  "dirty": true,
+  "concurrency": 4,
+  "ragas_concurrency": 4,
+  "warmup_cases": 0,
+  "timeout_seconds": 120.0,
+  "baseline": {
+    "label": "v2 + Qwen3精排Top10",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {
+      "enabled": true,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": false,
+      "max_items": 10
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "qwen3"
+  },
+  "candidate": {
+    "label": "v2 + Qwen3精排Top10 + 证据包",
+    "index_version": "v2",
+    "profile": "custom",
+    "top_k": 10,
+    "retrieval_options": {
+      "mode": "hybrid",
+      "vector_top_k": 20,
+      "bm25_top_k": 20,
+      "rrf_k": 10
+    },
+    "rerank_options": {
+      "enabled": true,
+      "top_n": 10
+    },
+    "evidence_options": {
+      "enabled": true,
+      "max_items": 10
+    },
+    "query_options": {
+      "enabled": false,
+      "strategy": "noop",
+      "synonym_enabled": false
+    },
+    "rerank_provider": "qwen3"
+  },
+  "telemetry": {
+    "ragas_do_not_track": true,
+    "offline_langfuse_enabled": false
+  },
+  "index_policy": {
+    "baseline": "v2",
+    "candidate": "v2"
+  },
+  "status": "completed",
+  "groups": {
+    "baseline": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    },
+    "candidate": {
+      "total_cases": 20,
+      "successful_cases": 20,
+      "failed_cases": 0
+    }
+  },
+  "verdict": "regressed",
+  "verdict_text": "证据筛选有效，建议保留并按需启用，不作为默认检索链路"
+}

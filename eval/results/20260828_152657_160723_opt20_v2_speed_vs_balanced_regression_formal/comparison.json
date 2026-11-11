@@ -1,0 +1,196 @@
+{
+  "generated_at": "2026-08-29T01:21:25.293256+00:00",
+  "experiment_id": "opt20_v2_speed_vs_balanced_regression",
+  "title": "优化二十 v2 Speed 与 Balanced 三档回归",
+  "target": "retrieve_profile",
+  "dataset_version": "golden_basic_20_v2",
+  "suite": "basic",
+  "case_count": 20,
+  "shared_candidate_top_k": null,
+  "final_top_k": 10,
+  "verdict": "regressed",
+  "verdict_text": "主质量指标有收益，但另一项质量指标下降，暂不启用",
+  "primary_metric": "context_recall",
+  "changed_fields": [
+    "profile",
+    "top_k",
+    "retrieval_options.mode",
+    "retrieval_options.bm25_top_k"
+  ],
+  "baseline_label": "v2 Speed",
+  "candidate_label": "v2 Balanced",
+  "baseline_index_version": "v2",
+  "candidate_index_version": "v2",
+  "baseline": {
+    "context_recall": 0.9333333333333333,
+    "context_precision": 0.9516666666021388,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 1113.2418,
+    "latency_p50_ms": 990.8430000000001,
+    "latency_p95_ms": 1928.3159000000005,
+    "latency_max_ms": 2740.64,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "candidate": {
+    "context_recall": 1.0,
+    "context_precision": 0.8774206348629165,
+    "evaluated_cases": 20,
+    "failed_cases": 0,
+    "ragas_skipped_cases": 0,
+    "successful_cases": 20,
+    "request_failed_cases": 0,
+    "latency_mean_ms": 851.24865,
+    "latency_p50_ms": 783.4495,
+    "latency_p95_ms": 1150.67715,
+    "latency_max_ms": 1381.777,
+    "average_application_model_calls": 0.0,
+    "model_calls_evaluated_cases": 20,
+    "ndcg_at_10": null,
+    "rank_evaluated_cases": 0
+  },
+  "baseline_diagnostics": {
+    "graph_affected_cases": 18,
+    "graph_injected_chunks": 108,
+    "supplemental_chunks": 37,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "candidate_diagnostics": {
+    "graph_affected_cases": 19,
+    "graph_injected_chunks": 129,
+    "supplemental_chunks": 89,
+    "average_evidence_count": null,
+    "average_evidence_chars": null,
+    "citation_traceable_items": 0,
+    "citation_total_items": 0,
+    "citation_traceability_rate": null,
+    "evidence_statuses": {},
+    "answer_present_cases": 0,
+    "answer_citations_valid_cases": 0,
+    "degraded_cases": 0,
+    "supplement_cases": 0,
+    "average_round_count": null,
+    "average_retrieval_task_count": null,
+    "average_research_llm_call_count": null,
+    "average_input_tokens": null,
+    "average_output_tokens": null
+  },
+  "delta": {
+    "average_application_model_calls": 0.0,
+    "context_precision": -0.07424603173922228,
+    "context_recall": 0.06666666666666665,
+    "evaluated_cases": 0.0,
+    "failed_cases": 0.0,
+    "latency_max_ms": -1358.8629999999998,
+    "latency_mean_ms": -261.99315,
+    "latency_p50_ms": -207.39350000000013,
+    "latency_p95_ms": -777.6387500000005,
+    "model_calls_evaluated_cases": 0.0,
+    "ndcg_at_10": null,
+    "ragas_skipped_cases": 0.0,
+    "rank_evaluated_cases": 0.0,
+    "request_failed_cases": 0.0,
+    "successful_cases": 0.0
+  },
+  "thresholds": {
+    "min_primary_improvement": 0.0,
+    "quality_guardrails": {
+      "context_precision": {
+        "min_delta": -0.05
+      }
+    },
+    "cost_limits": {
+      "max_p95_increase_ratio": 2.0,
+      "max_model_calls_increase": 0.0
+    },
+    "max_failed_cases": 0
+  },
+  "checks": {
+    "result_complete": true,
+    "primary_metric": {
+      "delta": 0.06666666666666665,
+      "min_improvement": 0.0,
+      "passed": true
+    },
+    "quality_improved": true,
+    "quality_guardrails": {
+      "context_precision": {
+        "delta": -0.07424603173922228,
+        "min_delta": -0.05,
+        "passed": false
+      }
+    },
+    "cost": {
+      "latency_p95_increase_ratio": -0.4032735248410286,
+      "max_latency_p95_increase_ratio": 2.0,
+      "latency_passed": true,
+      "model_calls_delta": 0.0,
+      "max_model_calls_increase": 0.0,
+      "model_calls_passed": true,
+      "passed": true
+    },
+    "citation_traceability": {
+      "value": null,
+      "required": null,
+      "passed": true
+    }
+  },
+  "failed_cases": {
+    "baseline_requests": 0,
+    "candidate_requests": 0,
+    "baseline_ragas": 0,
+    "candidate_ragas": 0
+  },
+  "scoring_errors": [],
+  "case_changes": {
+    "improved": [
+      {
+        "case_id": "coupon_expire",
+        "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+        "delta": 1.0
+      },
+      {
+        "case_id": "warehouse_mode_codes",
+        "question": "FBP、SOP和WMS在仓储履约中分别表示什么？",
+        "delta": 0.33333333333333337
+      }
+    ],
+    "regressed": []
+  },
+  "recall_case_changes": {
+    "improved": [
+      {
+        "case_id": "coupon_expire",
+        "question": "优惠券领取后通常有效多久，过期后会补发吗？",
+        "delta": 1.0
+      },
+      {
+        "case_id": "warehouse_mode_codes",
+        "question": "FBP、SOP和WMS在仓储履约中分别表示什么？",
+        "delta": 0.33333333333333337
+      }
+    ],
+    "regressed": []
+  },
+  "recommendation": "主指标提升达到门槛，但质量护栏未通过。这说明当前实现有局部收益，但还不适合默认启用；建议保持「v2 Speed」，先排查退化题目再复测。"
+}
